@@ -1,4 +1,5 @@
-/* 遮罩层处理*/
+﻿
+/*遮罩层处理*/
 
 .mask{
     display: none;
@@ -7,8 +8,8 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0, .5);
-    zoom: 1001;
+    background-color: rgba(0,0,0,.5);
+    zoom:1001;
 }
 
 .upon-mask{
@@ -23,7 +24,14 @@
     left: 50%;
     margin-top: -210px;
     margin-left: -275px;
-    box-shadow: 0 0 80px 0 rgba(0,0,0, .4);
+    box-shadow: 0 0 80px 0 rgba(0,0,0,.4);
+}
+
+.upon-mask h3{
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+    line-height: 14px;
+    background: linear-gradient(to bottom,#1D7FE2,#0865C2);
 }
 
 .upon-mask h3 span:first-child{
@@ -56,6 +64,7 @@
 }
 
 
+
 .upon-mask input{
     width: 489px;
     padding: 8px 10px;
@@ -73,15 +82,16 @@
     margin-top: 5px;
 }
 
+
 .upon-mask button{
     float: right;
     color: #fff;
-    text-shadow: 0 -1px 0 rgba(0,0,0.5);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     background: #1472cf;
     background: -webkit-linear-gradient(top,#1d7fe2,#0865c2);
     background: linear-gradient(to bottom,#1d7fe2,#0865c2);
     border: 1px solid #0D6EB8;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .2) inset, 0 1px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 1px 0 rgba(0,0,0,.2);
     font-size: 14px;
     line-height: 1.7;
     text-decoration: none!important;
@@ -92,3 +102,31 @@
     white-space: nowrap;
     box-sizing: border-box;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,29 +1,35 @@
+﻿
 /*主体部分*/
 .main{
-    width: 960px;
-    margin: 0 auto;
+	width: 960px;
+	margin: 0 auto;
 }
 
 /*内容部分*/
 .content{
-    float: left;
-    width: 632px;
+	float: left;
+	width: 632px;
 }
 
 /*主页提问回答入口*/
 .home-entry{
-    width: 100%;
-    height: 50px;
-    margin-bottom: 30px;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 30px;
 }
 
 .home-entry-avatar{
-    float: left;
+	float: left;
     width: 38px;
 }
 
+.home-entry-avatar img{
+    width: 38px;
+    height: 38px;
+}
+
 .home-entry-box{
-    margin-left: 58px;
+	margin-left: 58px;
     height: 48px;
     line-height: 48px;
     background: #fafafa;
@@ -33,112 +39,120 @@
 }
 
 ul.home-entry-list{
-    position: relative;
-    padding-left: 30px;
+	position: relative;
+	padding-left: 30px;
 }
 
 ul.home-entry-list li{
-    float: left;
+	float: left;
     padding: 0 45px 0 27px;
     font-size: 14px;
 }
 
 ul.home-entry-list li a{
-    color: #6c829f;
+	color: #6c829f;
 }
 
 ul.home-entry-list li a:hover{
-    color: #235699;
+	color: #235699;
 }
 
 .sprite-ask{
-    position: absolute;
-    top: 13px;
+	position: absolute;
+	top: 13px;
     left: 35px;
-    display: inline-block;
-    background-image: url(../image/sprite2.png);
-    background-position: -96px -30px;
-    width: 24px;
-    height: 24px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-148px -30px;
+	width:24px;
+	height:24px
 }
 
 .sprite-answer{
-    position: absolute;
-    top: 13px;
+	position: absolute;
+	top: 13px;
     left: 136px;
-    display: inline-block;
-    background-image: url(../image/sprite2.png);
-    background-position: -96px -30px;
-    width: 24px;
-    height: 24px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-96px -30px;
+	width:24px;
+	height:24px
 }
 
 .sprite-write{
-    position: absolute;
-    top: 13px;
+	position: absolute;
+	top: 13px;
     left: 236px;
-    display: inline-block;
-    background-image: url(../image/sprite2.png);
-    background-position: -122px  -56px;
-    width: 24px;
-    height: 24px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-122px -56px;
+	width:24px;
+	height:24px
 }
 
 .home-entry-draft{
-    float: right;
+	float: right;
     margin-right: 20px;
     line-height: 49px;
 }
 
 .home-entry-draft a{
-    float: right;
+	float: right;
     line-height: 49px;
     color: #999;
     font-size: 13px;
 }
 
-/*头部标题*/
+/*头部标题部分*/
 .list-title{
-    width: 100%;
-    height: 24px;
-    margin-bottom: 10px;
+	width: 100%;
+	height: 24px;
+	margin-bottom: 10px;
 }
 
 .list-title .title-text{
-    float: left;
-    color: #666;
+	float: left;
+	color: #666;
     font-weight: 700;
 }
 
 .list-title .setting a{
-    float: right;
-    color: #698ebf;
-    font-weight: 400;
-    font-size: 13px;
+	float: right;
+	color: #698ebf;
+	font-weight: 400;
+	font-size: 13px;
 }
+
 
 
 /*feed流部分*/
-.feedlist{
-    border-top: 1px rgba(204, 204, 204) solid;
-    padding-top: 5px;
+.feed-list{
+	border-top: 1px rgb(204, 204, 204) solid;
+	padding-top: 5px;
 }
 
 .feed-item{
-    position: relative;
-    margin-top: 14px;
-    padding: 8px 0 8px;
-    border-bottom: 1px solid rgb(238, 238, 238);
+	position: relative;
+	margin-top: 14px;
+	padding: 8px 0 8px;
+	border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .feed-item .avatar{
-    position: absolute;
-    top: 8px;
+	position: absolute;
+	top: 8px;
 }
 
 .feed-item .avatar img{
-    width: 38px;
-    height: 38px;
+	width: 38px;
+	height: 38px;
+}
+
+.feed-item .vote-count{
+	position: absolute;
+	top: 50px;
+	width: 38px;
+	height: 24px;
 }
 
 .feed-item .vote-count a{
@@ -240,34 +254,39 @@ ul.home-entry-list li a:hover{
 	text-decoration: underline;
 }
 
-/*右侧工具栏*/
+
+
+
+
+/*右侧工具栏部分*/
 .sidebar{
-    float: right;
-    width: 270px;
-    height: 600px;
-    margin-left: 58x;
+	float: right;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+	/*background-color: yellow;*/
 }
 
-
+/*工具类顶部部分*/
 .sidebar-top{
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eee;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
 }
 
 .sidebar-top ul li{
-    width: 270px;
-    height: 28px;
-    padding-left: 10px;
-    margin-bottom: 5px;
+	width: 270px;
+	height: 28px;
+	padding-left: 10px;
+	margin-bottom: 5px;
 }
 
 .sidebar-top ul li a{
-    display: block;
-    width: 270px;
-    height: 28px;
-    line-height: 28px;
-    color: #666;
-    font-size: 13px;
+	display: block;
+	width: 270px;
+	height: 28px;
+	line-height: 28px;
+	color: #666;
+	font-size: 13px;
 }
 
 .sidebar-top ul li a:hover{
@@ -277,10 +296,10 @@ ul.home-entry-list li a:hover{
 }
 
 .sprite-collection{
-    display: inline-block;
-    background-image: url(../image/sprites-1.9.2.4c54885a.png);
-    background-position: -167px -4px;
-    margin-right: 2px;
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -167px -4px;
+	margin-right: 2px;
     width: 14px;
     height: 14px;
     vertical-align: -2px;
@@ -348,7 +367,25 @@ ul.home-entry-list li a:hover{
     vertical-align: middle;
 }
 
+/*footer部分*/
+
+.footer{
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
 /*遮罩层处理*/
+
 .mask{
     display: none;
     position: fixed;
@@ -429,3 +466,4 @@ ul.home-entry-list li a:hover{
 .upon-mask div{
     margin-top: 5px;
 }
+
