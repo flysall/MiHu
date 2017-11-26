@@ -26,17 +26,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	 * 
 	 */
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
 		String requestUri = request.getRequestURI();
 
-		// 是否对其拦截
+		// 是否需要拦截
 		for (String s : excludedUrls) {
 			if (requestUri.endsWith(s)) {
 				return true;
 			}
 		}
 		String loginToken = null;
+		// 是否有cookie
 		Cookie[] cookies = request.getCookies();
 		if (ArrayUtils.isEmpty(cookies)) {
 			request.getRequestDispatcher("toLogin").forward(request, response);
@@ -50,7 +51,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			}
 		}
 
-		// Cookie中是够有loginToken
+		// cookie中是否有loginToken
 		if (StringUtils.isEmpty(loginToken)) {
 			request.getRequestDispatcher("toLogin").forward(request, response);
 			return false;

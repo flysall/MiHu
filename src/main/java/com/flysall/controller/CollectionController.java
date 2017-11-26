@@ -96,7 +96,7 @@ public class CollectionController {
 		return new Response(0, "");
 	}
 
-	@RequestMapping("/followCollection")
+	@RequestMapping("/unfollowCollection")
 	@ResponseBody
 	public Response unfollowCollection(Integer collectionId, HttpServletRequest request) {
 		Integer userId = userService.getUserIdFromRedis(request);
