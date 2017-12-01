@@ -97,6 +97,7 @@ public class UserService {
 		user.setUsername(username);
 		user.setAvatarUrl(MyConstant.QINIU_IMAGE_URL + "head.jpg");
 		user.setEmail(email);
+		user.setActivationState(1);
 
 		// 发送邮件
 		//taskExecutor.execute(new MailTask(activateCode, user.getEmail(), javaMailSender, 1));

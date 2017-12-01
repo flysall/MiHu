@@ -5,8 +5,8 @@
         <selectKey resultType="int" order="AFTER" keyProperty="userId">
             select last_insert_id() as userId
         </selectKey>
-        insert into user(email, password, activation_code, join_time, username, avatar_url)
-        values(#{email}, #{password}, #{activationCode}, #{joinTime}, #{username}, #{avatarUrl})
+        insert into user(email, password, activation_code, join_time, username, avatar_url, activation_state)
+        values(#{email}, #{password}, #{activationCode}, #{joinTime}, #{username}, #{avatarUrl}, #{activationState})
     </insert>
 
     <insert id="insertWeiboUser">
@@ -23,8 +23,8 @@
     </select>
 
     <select id="selectUserIdByEmailAndPassword" resultType="int">
-        select user_id from user 
-        where email = #{email} and password = #{password}
+        select user_id from user
+        where email=#{email} and password=#{password}
     </select>
 
     <select id="selectUserInfoByUserId" resultType="com.flysall.model.User">
@@ -37,7 +37,7 @@
     </select>
 
     <select id="selectActivationStateByUserId" resultType="int">
-        select activation_code from user where user_id = #{userId}
+        select activation_state from user where user_id = #{userId}
     </select>
 
     <update id="updateActivationStateByActivationCode">
