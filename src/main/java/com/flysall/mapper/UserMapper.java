@@ -10,7 +10,7 @@ public interface UserMapper {
 
 	void insertUser(User user);
 
-	int selectEmailCount(String email);
+	int selectEmailCount(@Param("email") String email);
 
 	Integer selectUserIdByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 

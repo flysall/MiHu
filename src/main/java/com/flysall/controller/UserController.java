@@ -42,7 +42,7 @@ public class UserController {
 	public Response register(String username, String email, String password) {
 		Map<String, String> map = userService.register(username, email, password);
 		if (map.get("ok") != null) {
-			return new Response(0, "系统已经向你的邮箱发送了一封邮件，验证后即可登录");
+			return new Response(0, "您已注册成功, 欢迎使用!");
 		} else {
 			return new Response(1, "error", map);
 		}

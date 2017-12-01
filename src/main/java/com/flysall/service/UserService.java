@@ -59,7 +59,7 @@ public class UserService {
 	public Map<String, String> register(String username, String email, String password) {
 		Map<String, String> map = new HashMap<>();
 		// 校验邮箱格式
-		Pattern p = Pattern.compile("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-]) + ((\\.[a-zA-Z0-9_-]{2,3}){1,2})$"); // flysallme@gmail.com
+		Pattern p = Pattern.compile("^([a-zA-Z0-9]{1,10})@([a-zA-Z0-9]{1,10})(\\.[a-zA-Z0-9]{1,10})$"); // flysallme@gmail.com
 		Matcher m = p.matcher(email);
 		if (!m.matches()) {
 			map.put("regi-email-error", "请输入正确的邮箱");
@@ -96,9 +96,10 @@ public class UserService {
 
 		user.setUsername(username);
 		user.setAvatarUrl(MyConstant.QINIU_IMAGE_URL + "head.jpg");
+		user.setEmail(email);
 
 		// 发送邮件
-		taskExecutor.execute(new MailTask(activateCode, user.getEmail(), javaMailSender, 1));
+		//taskExecutor.execute(new MailTask(activateCode, user.getEmail(), javaMailSender, 1));
 
 		// 向数据库插入记录
 		userMapper.insertUser(user);
@@ -110,6 +111,7 @@ public class UserService {
 		jedis.zadd(user.getUserId() + RedisKey.FOLLOW_PEOPLE, new Date().getTime(), String.valueOf(4));
 		jedis.zadd(4 + RedisKey.FOLLOWED_PEOPLE, new Date().getTime(), String.valueOf(user.getUserId()));
 		jedisPool.returnResource(jedis);
+		map.put("ok", "register successfully");
 		return map;
 	}
 

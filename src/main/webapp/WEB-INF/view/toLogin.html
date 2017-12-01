@@ -66,7 +66,7 @@
 				<li id="registerHeader">注册</li>
 				<li id="loginHeader" class="active-header">登录</li>
 			</ul>
-			<div style="display: none;">
+			<div id="register" style="display: none;">
 				<form id="registerForm">
 					<div class="inputs">
                         <input type="text" name="username" id="registerInputUsername" placeholder="姓名">
@@ -82,7 +82,7 @@
 				</form>
                 <button id="registerButton" type="button">注册</button>
 			</div>
-			<div>
+			<div id="login">
 				<form id="loginForm">
 					<div class="inputs">
 						<input type="text" name="email" id="loginInputEmail" placeholder="邮箱">
@@ -106,7 +106,7 @@
 	$(function(){
 
 		//微博登录
-/* 		WB2.anyWhere(function (W) {
+		WB2.anyWhere(function (W) {
 		    W.widget.connectButton({
 		        id: "wb_connect_btn",
 		        type: '3,2',
@@ -119,7 +119,7 @@
 		            }
 		        }
 		    });
-		}); */
+		}); 
 
 	
 		/* hash判断 */

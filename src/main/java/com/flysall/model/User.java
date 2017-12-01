@@ -10,7 +10,7 @@ public class User {
 	private String username;
 	private Integer gender;
 	private String simpleDesc;
-	private String avataUrl;
+	private String avatarUrl;
 	private String position;
 	private String industry;
 	private String career;
@@ -95,11 +95,11 @@ public class User {
 	}
 
 	public String getAvataUrl() {
-		return avataUrl;
+		return avatarUrl;
 	}
 
 	public void setAvatarUrl(String avataUrl) {
-		this.avataUrl = avataUrl;
+		this.avatarUrl = avataUrl;
 	}
 
 	public String getPosition() {
