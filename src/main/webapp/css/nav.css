@@ -1,6 +1,7 @@
 ﻿/*导航条部分*/
 .nav{
 	height: 45px;
+	width: 100%;
 	background: linear-gradient(to bottom,#086ed5,#055db5);
 	border-bottom: 1px solid #044e97;
 	margin-bottom: 25px;
@@ -8,7 +9,6 @@
 }
 
 .nav-wrap{
-	width: 960px;
 	height: 45px;
 	margin: 0 auto;
 }

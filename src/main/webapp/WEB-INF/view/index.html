@@ -16,7 +16,7 @@
 		<div class="content">
 			<div class="home-entry">
 				<div class="home-entry-avatar">
-					<img id="userAvatar" src="image/avatar2.jpg">
+					<img src="${base}/image/flysall.png">
 				</div>
 				<div class="home-entry-box">
 					<ul class="home-entry-list">
@@ -34,7 +34,7 @@
 				{{each answerList}}
 				<div class="feed-item">
 					<div class="avatar">
-						<a href="${base}/profile/{{$value.user.userId}}"><img src="{{$value.user.avatarUrl}}"></a>
+						<a href="${base}/profile/{{$value.user.userId}}"><img src="{$value.user.avatarUrl}"></a>
 					</div>
 					<div class="vote-count">
 						<% if($value.likeState=="true"){ %>
