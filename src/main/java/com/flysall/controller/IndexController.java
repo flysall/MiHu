@@ -40,7 +40,6 @@ public class IndexController {
 	}
 
 	@RequestMapping("/setting")
-	@ResponseBody
 	public String setting(HttpServletRequest request, Model model) {
 		Integer userId = userService.getUserIdFromRedis(request);
 		User user = userService.getProfileInfo(userId);
