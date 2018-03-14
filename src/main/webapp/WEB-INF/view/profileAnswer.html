@@ -1,5 +1,4 @@
-﻿<#setting number_format="#">；
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title>个人信息</title>
@@ -11,7 +10,6 @@
 
 </head>
 <body>
-	<#assign base = request.contextPath/>
 	<base id="baseUrl" href="${base}/"/>
 	<div class="nav">
 		<div class="wrap">
@@ -42,10 +40,11 @@
 			</div>
 			<div class="profile-info">
 				<div class="profile-avatar">
-					<img src="${user.avatarUrl}">
+<!--					<img src="${user.avatarUrl}"> -->
+					<img src="http://od6v5lenq.bkt.clouddn.com/1484c2a1-8f6d-4603-9316-94f87217e380.jpg">	
 				</div>
 
-				<div class="two-button" id="isSelf" data-id="${isSelf?c}">
+				<div class="two-button" id="isSelf">
 					<#if isSelf==true>
 						<a href="${base}/setting" class="follow-button">编辑信息</a>
 					<#else>
@@ -58,36 +57,26 @@
 					<span id="userId" data-id="${user.userId}">${user.username}</span>
 					<span>${user.simpleDesc}</span>
 				</div>
-				<#if user.position?? >
-					<div class="info-item">
-						<span class="item-key">居住地</span>
-						<div class="item-value">${user.position}</div>
-					</div>
-				</#if>
-				<#if user.industry?? >
-					<div class="info-item">
-						<span class="item-key">所在行业</span>
-						<div class="item-value">${user.industry}</div>
-					</div>
-				</#if>
-				<#if user.career?? >
-					<div class="info-item">
-						<span class="item-key">职业经历</span>
-						<div class="item-value">${user.career}</div>
-					</div>
-				</#if>
-				<#if user.education?? >
-					<div class="info-item">
-						<span class="item-key">教育背景</span>
-						<div class="item-value">${user.education}</div>
-					</div>
-				</#if>
-				<#if user.fullDesc?? >
-					<div class="info-item">
-						<span class="item-key">个人简介</span>
-						<div class="item-value">${user.fullDesc}</div>
-					</div>
-				</#if>
+				<div class="info-item">
+					<span class="item-key">居住地</span>
+					<div id="userPosition" class="item-value">请稍后</div>
+				</div>
+				<div class="info-item">
+					<span class="item-key">所在行业</span>
+					<div id="userIndustry" class="item-value">请稍后</div>
+				</div>
+				<div class="info-item">
+					<span class="item-key">职业经历</span>
+					<div id="userCareer" class="item-value">请稍后</div>
+				</div>
+				<div class="info-item">
+					<span class="item-key">教育背景</span>
+					<div id="userEducation" class="item-value">请稍后</div>
+				</div>
+				<div class="info-item">
+					<span class="item-key">个人简介</span>
+					<div id="userFullDesc" class="item-value"></div>
+				</div>
 			</div>
 		</div>
 
@@ -133,11 +122,12 @@
 							</li>
 							</#list>
 						</ul>
-
+<!--
 						<div class="pagination">
 							<div class="buttons">
 								<a class="pre-page" href="${base}/profile/${user.userId}?page=1">首页</a>
 								<!-- 上一页处理 -->
+<!--								
 								<#if pageBean.curPage!=1>
 									<a class="pre-page" href="${base}/profile/${user.userId}?page=${pageBean.curPage-1}">上一页</a>
 								<#else>
@@ -145,6 +135,7 @@
 								</#if>
 								
 								<!-- 中间页码 -->
+<!--								
 								<#if pageBean.allPage<=6>
 									<#list 1..pageBean.allPage as i>
 										<a href="${base}/profile/${user.userId}?page=${i}">${i}</a>
@@ -164,17 +155,18 @@
 								</#if>
 								
 								<!-- 下一页处理 -->
+<!--								
 								<#if pageBean.curPage!=pageBean.allPage>
 									<a class="next-page" href="${base}/profile/${user.userId}?page=${pageBean.curPage+1}">下一页</a>
 								<#else>
 									<span>下一页</span>
 								</#if>
 								<a class="next-page" href="${base}/profile/${user.userId}?page=${pageBean.allPage}">尾页</a>
+-->								
 							</div>
-					</div>
+						</div>
 					</div>
 				</div>
-
 			</div>
 
 
@@ -242,10 +234,26 @@
 
 <script type="text/javascript" src="${base}/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="${base}/js/profile.js"></script>
-<script>
-
-
-
+<script type="text/javascript" src="${base}/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"></script>
+<script type="text/javascript">
+	var ajaxUrl = document.location + ".json";
+	function getUserInfo() {
+		$.ajax({
+			url: ajaxUrl,
+			type:"GET",
+			dataType:"json",
+			success:function(user) {
+			//	var user = eval('(' + data + ')');	
+				$("#userPosition").text(user.userPosition);
+				$("#userIndustry").text(user.userIndustry);
+				$("#userCareer").text(user.userCareer);
+				$("#userEducation").text(user.userEducation);
+				$("#userFullDesc").text(user.userFullDesc);
+			}
+		});
+	}
+	getUserInfo();
 </script>
 
 

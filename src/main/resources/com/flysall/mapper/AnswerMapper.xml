@@ -9,7 +9,8 @@
         <result column="simple_desc" property="simpleDesc"></result>
     </resultMap>
 
-    <resultMap type="com.flysall.model.Question" id="questonMap">
+    <!-- 2018-3-12 -->
+    <resultMap type="com.flysall.model.Question" id="questionMap">
         <id column="question_id" property="questionId" />
         <result column="question_title" property="questionTitle"></result>
     </resultMap>
@@ -99,7 +100,7 @@
         update answer set liked_count = liked_count + 1
         where answer_id = #{answerId}
     </update>
-
+<!--
     <select id="listAnswerByUserIdList" resultMap="answerMap">
     	select a.answer_id,a.answer_content,a.liked_count,a.create_time,
 		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc
@@ -115,7 +116,23 @@
 		order by a.create_time desc
 		limit #{offset},#{limit}
     </select>
-
+-->
+    <!-- 2018-3-12 -->
+    <select id="listAnswerByUserIdList" resultMap="answerMap">
+        select a.answer_id, a.answer_content, a.liked_count, a.create_time,
+        q.question_id, q.question_title, u.user_id, u.username, u.avatar_url, u.simple_desc
+        from answer as a join question as q on a.question_id = q.question_id
+        join user as u on a.user_id = u.user_id
+        <where>
+            u.user_id in
+            <foreach collection="userIdList" item="item" index="index" open="("
+                     separator="," close=")">
+                #{item}
+            </foreach>
+        </where>
+        order by a.create_time desc
+        limit #{offset}, #{limit}
+    </select>
     <select id="listAnswerByCreateTime" resultMap="answerMap">
     	select a.answer_id,a.answer_content,a.liked_count,a.create_time,
 		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc

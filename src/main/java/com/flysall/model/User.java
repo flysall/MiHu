@@ -94,12 +94,12 @@ public class User {
 		this.simpleDesc = simpleDesc;
 	}
 
-	public String getAvataUrl() {
+	public String getAvatarUrl() {
 		return avatarUrl;
 	}
 
-	public void setAvatarUrl(String avataUrl) {
-		this.avatarUrl = avataUrl;
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
 	}
 
 	public String getPosition() {

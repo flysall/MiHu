@@ -95,7 +95,7 @@ public class Answer {
 		return likeState;
 	}
 
-	public void setLikedState(String likeState) {
+	public void setLikeState(String likeState) {
 		this.likeState = likeState;
 	}
 

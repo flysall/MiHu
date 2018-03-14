@@ -13,6 +13,8 @@ File Encoding         : 65001
 Date: 2017-07-14 18:40:58
 */
 
+CREATE DATABASE `hahu`;
+USE `hahu`;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------

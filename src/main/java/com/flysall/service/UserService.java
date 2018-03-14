@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.flysall.async.MailTask;
 import com.flysall.mapper.*;
 import com.flysall.model.*;
 import com.flysall.util.*;
@@ -105,7 +104,8 @@ public class UserService {
 		// 向数据库插入记录
 		userMapper.insertUser(user);
 
-		// 设置默认关注用户
+		// 18-3-12
+		// 设置默认关注用户, 新注册用户默认关注3号和4号用户
 		Jedis jedis = jedisPool.getResource();
 		jedis.zadd(user.getUserId() + RedisKey.FOLLOW_PEOPLE, new Date().getTime(), String.valueOf(3));
 		jedis.zadd(3 + RedisKey.FOLLOWED_PEOPLE, new Date().getTime(), String.valueOf(user.getUserId()));
@@ -417,7 +417,7 @@ public class UserService {
 				// 获取用户点赞状态
 				Long rank = jedis.zrank(answer.getAnswerId() + RedisKey.LIKED_ANSWER, String.valueOf(userId));
 				System.out.println("rank:" + rank);
-				answer.setLikedState(rank == null ? "false" : "true");
+				answer.setLikeState(rank == null ? "false" : "true");
 			}
 		}
 		map.put("answerList", answerList);
@@ -486,5 +486,27 @@ public class UserService {
 		map.put("userInfo", userInfo);
 
 		return new Response(0, "", userInfo);
+	}
+
+	/**
+	 *
+	 * @param userId
+	 * @return
+	 * @author flysall
+	 */
+	public String getUserInfo(Integer userId) {
+		User user = userMapper.selectProfileInfoByUserId(userId);
+		String position = user.getPosition() == null ? "" : user.getPosition();
+		String industry = user.getIndustry() == null ? "" : user.getIndustry();
+		String career = user.getCareer() == null ? "" : user.getCareer();
+		String education = user.getEducation() == null ? "" : user.getEducation();
+		String fullDesc = user.getFullDesc() == null ? "" : user.getFullDesc();
+		String result = "{" +
+				"\"userPosition\": \"" + position + "\"," +
+				"\"userIndustry\": \"" + industry + "\"," +
+				"\"userCareer\": \"" + career + "\"," +
+				"\"userEducation\": \"" + education + "\"," +
+				"\"userFullDesc\": \"" + fullDesc + "\"}";
+		return result;
 	}
 }

@@ -6,6 +6,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,6 +79,15 @@ public class UserController {
 		return "redirect:/toLogin";
 	}
 
+	/**
+	 *
+	 * @param userId
+	 * @param page
+	 * @param request
+	 * @param model
+	 * @return
+	 * @author flysall
+	 */
 	@RequestMapping("/profile/{userId}")
 	public String profile(@PathVariable Integer userId, Integer page, HttpServletRequest request, Model model) {
 		Integer localUserId = userService.getUserIdFromRedis(request);
@@ -85,8 +95,8 @@ public class UserController {
 		// 获取答案列表
 		PageBean<Answer> pageBean = answerService.listAnswerByUserId(userId, page);
 		map.put("pageBean", pageBean);
-
 		model.addAllAttributes(map);
+
 		return "profileAnswer";
 	}
 
@@ -169,4 +179,18 @@ public class UserController {
 		Response response = userService.getWeiboUserInfo(localUserId);
 		return response;
 	}
+
+	/**
+	 *
+	 * @param userId
+	 * @return
+	 * @author flysall
+	 */
+	@RequestMapping("/profile/{userId}.json")
+	@ResponseBody
+	public String getUserInfo(@PathVariable Integer userId) {
+		String userInfo = userService.getUserInfo(userId);
+		return userInfo;
+	}
 }
+
